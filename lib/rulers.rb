@@ -1,11 +1,12 @@
 require 'rulers/version'
 require 'rulers/array'
 require 'rulers/routing'
+require 'rulers/util'
+require 'rulers/dependencies'
 
 module Rulers
   class Application
     def call(env)
-      stub_favicon(env)
       if env['PATH_INFO'] == '/'
         klass = Object.const_get 'HomeController'
         act = 'index'
@@ -21,11 +22,6 @@ module Rulers
     end
 
     private
-
-    def stub_favicon(env)
-      response = [404, { 'Content-Type' => 'text/html' }, []]
-      return response unless env['PATH_INFO'] != '/favicon.ico'
-    end
 
     def success_response(controller, act)
       text = controller.send(act)
