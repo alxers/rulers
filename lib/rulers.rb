@@ -3,6 +3,7 @@ require 'rulers/array'
 require 'rulers/routing'
 require 'rulers/util'
 require 'rulers/dependencies'
+require 'rulers/controller'
 
 module Rulers
   class Application
@@ -32,13 +33,5 @@ module Rulers
       [500, { 'Content-Type' => 'text/html' },
        ["Message error: #{e.message}"]]
     end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    attr_reader :env
   end
 end
