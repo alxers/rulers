@@ -6,6 +6,7 @@ module Rulers
 
     def initialize(env)
       @env = env
+      @user_agent = env['HTTP_USER_AGENT']
     end
 
     def render(view_name, locals = {})
