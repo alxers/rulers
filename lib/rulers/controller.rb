@@ -2,6 +2,8 @@ require 'erubis'
 
 module Rulers
   class Controller
+    include Rulers::Model
+
     attr_reader :env
 
     def initialize(env)
